@@ -1,6 +1,6 @@
 {
-  "name": "noflo-zero-seven-example",
-  "version": "0.0.1",
+  "name": "noflo-example",
+  "version": "0.0.2",
   "description": "Example usage of noflo 0.7.*",
   "main": "index.js",
   "engines": {
@@ -22,15 +22,5 @@
     "grunt-noflo-manifest": "^0.1.4",
     "mocha": "^2.3.3",
     "send": "^0.13.1"
-  },
-  "noflo": {
-    "graphs": {
-      "Qux": "graphs/Qux.fbp"
-    },
-    "components": {
-      "Bar": "components/Bar.coffee",
-      "Baz": "components/Baz.coffee",
-      "Foo": "components/Foo.coffee"
-    }
   }
 }
