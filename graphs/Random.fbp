@@ -1,0 +1,11 @@
+'aretecode' -> NAME NameValidator(Foo)
+NameValidator LETTERS -> LETTERS AmountOfLetters(Bar)
+NameValidator AMOUNT -> AMOUNT AmountOfLetters(Bar)
+
+# `reverse` in port is not required, `randomize` is
+# if randomize went in after `letters` and `randomize`, it would default
+'false' -> REVERSE LetterMaster
+'true' -> RANDOMIZE LetterMaster
+
+AmountOfLetters OUT -> LETTERS LetterMaster(Baz)
+LetterMaster OUT -> IN Output(core/Output)

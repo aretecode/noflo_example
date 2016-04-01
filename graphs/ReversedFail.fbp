@@ -2,7 +2,8 @@
 NameValidator LETTERS -> LETTERS AmountOfLetters(Bar)
 NameValidator AMOUNT -> AMOUNT AmountOfLetters(Bar)
 
-'true' -> RANDOMIZE LetterMaster
-'false' -> REVERSE LetterMaster
+# `reverse` in port is not required, `randomize` is
+'true' -> REVERSE LetterMaster
 
 AmountOfLetters OUT -> LETTERS LetterMaster(Baz)
+LetterMaster OUT -> IN Output(core/Output)

@@ -1,5 +1,16 @@
 noflo = require 'noflo'
-noflo.loadFile 'graphs/Qux.fbp', process.cwd(), (err, network) ->
-  console.log 'went into app'
-  console.log err, network
+
+noflo.loadFile 'graphs/Normal.fbp', process.cwd(), (err, network) ->
+  network
+
+noflo.loadFile 'graphs/Reversed.fbp', process.cwd(), (err, network) ->
+  network
+
+noflo.loadFile 'graphs/Random.fbp', process.cwd(), (err, network) ->
+  network
+
+noflo.loadFile 'graphs/RandomReverse.fbp', process.cwd(), (err, network) ->
+  network
+
+noflo.loadFile 'graphs/ReversedFail.fbp', process.cwd(), (err, network) ->
   network

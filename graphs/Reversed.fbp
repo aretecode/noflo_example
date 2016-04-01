@@ -1,0 +1,9 @@
+'aretecode' -> NAME NameValidator(Foo)
+NameValidator LETTERS -> LETTERS AmountOfLetters(Bar)
+NameValidator AMOUNT -> AMOUNT AmountOfLetters(Bar)
+
+'true' -> REVERSE LetterMaster
+'false' -> RANDOMIZE LetterMaster
+
+AmountOfLetters OUT -> LETTERS LetterMaster(Baz)
+LetterMaster OUT -> IN Output(core/Output)

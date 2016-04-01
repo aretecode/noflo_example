@@ -33,8 +33,6 @@ exports.getComponent = ->
 
       return output.sendDone errors if errors.length > 0
 
-      console.log ' did not have errors '
-
       output.send
         letters: new noflo.IP 'openBracket', name
 
