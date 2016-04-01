@@ -2,8 +2,7 @@
 NameValidator LETTERS -> LETTERS AmountOfLetters(Bar)
 NameValidator AMOUNT -> AMOUNT AmountOfLetters(Bar)
 
-'false' -> RANDOMIZE LetterMaster
+'true' -> RANDOMIZE LetterMaster
 'false' -> REVERSE LetterMaster
-'false' -> TYPE LetterMaster
 
 AmountOfLetters OUT -> LETTERS LetterMaster(Baz)

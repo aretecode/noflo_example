@@ -1,5 +1,5 @@
-Does it wait for params to have a default value if they are required?
-trigering: false + control: true ~== WirePattern `param`
+- `required: true` + `params` ~= `control: true` + `triggering: true` + `input.has()`
+- `required: false` + `params` ~= `control: true` + `triggering: false`
 
 ### @TODO:
 - [] make a second graph using optional settings

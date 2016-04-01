@@ -9,22 +9,10 @@ exports.getComponent = ->
       randomize:
         datatype: 'all' # boolean
         required: false
-        triggering: false # triggering is false makes it not show up in `process` input
-        control: true
-      randomize:
-        datatype: 'all' # boolean
-        required: false
-        triggering: false
         control: true
       reverse:
         datatype: 'all' # boolean
         required: false
-        triggering: false
-        control: true
-      type: # first, middle, last, or do some other optional
-        datatype: 'string'
-        required: false #true
-        triggering: false
         control: true
     outPorts:
       request:
@@ -32,8 +20,11 @@ exports.getComponent = ->
       error:
         datatype: 'object'
     process: (input, output) ->
-      console.log ' went into Baz'
-      console.log input
+      return unless input.has 'letters', 'randomize'
+      # provide some defaults to the rest
+      reverse = input.getData 'reverse'
+      reverse ?= false
 
-      return unless input.has 'randomize'
-      console.log 'has randomize!'
+      # getting the data
+      [letters, randomize] = input.getData 'letters', 'randomize'
+      console.log letters, randomize, reverse

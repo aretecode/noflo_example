@@ -15,43 +15,39 @@ exports.getComponent = ->
       error:
         datatype: 'object'
     process: (input, output) ->
-      try
-        return unless input.has 'name'
-        name = input.getData 'name'
-        return unless input.ip.type is 'data'
+      return unless input.has 'name'
+      name = input.getData 'name'
+      return unless input.ip.type is 'data'
 
-        errors = []
+      errors = []
 
-        # can use classes that extend Error
-        unless typeof name is 'string'
-          errors.push noflo.helpers.CustomError 'Name is not a string',
-            kind: 'type_erorr'
-            data: name
+      # can use classes that extend Error
+      unless typeof name is 'string'
+        errors.push noflo.helpers.CustomError 'Name is not a string',
+          kind: 'type_erorr'
+          data: name
 
-        # or normal Errors
-        unless /[a-zA-Z]/.test name
-          errors.push new Error '`#{name}` contains more than just letters'
+      # or normal Errors
+      unless /[a-zA-Z]/.test name
+        errors.push new Error '`#{name}` contains more than just letters'
 
-        return output.sendDone errors if errors.length > 0
+      return output.sendDone errors if errors.length > 0
 
-        console.log ' did not have errors '
+      console.log ' did not have errors '
 
+      output.send
+        letters: new noflo.IP 'openBracket', name
+
+      # split the letters, then go through each one and send them out
+      letters = name.split ""
+      for letter in letters
         output.send
-          letters: new noflo.IP 'openBracket', name
+          letters: letter
 
-        # split the letters, then go through each one and send them out
-        letters = name.split ""
-        for letter in letters
-          output.send
-            letters: letter
+      output.send
+        amount: letters.length
 
-        output.send
-          amount: letters.length
+      output.send
+        letters: new noflo.IP 'closeBracket', name
 
-        output.send
-          letters: new noflo.IP 'closeBracket', name
-
-        output.done()
-      catch e
-        console.log 'DAMN ERROR'
-        console.log e.stack
+      output.done()

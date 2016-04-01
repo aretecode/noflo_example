@@ -17,15 +17,11 @@ exports.getComponent = ->
       return unless input.has 'letters', 'amount'
       [letters, amount] = input.getData 'letters', 'amount'
 
-      console.log ' went through Bar'
-
       output.send
         out: letters
 
       output.sendDone
         out: letters
-
-      output.done()
 
   # if we wanted, we could put the letters back together manually and guess what name it was,
   # learning from what words and names other people had previously put in
